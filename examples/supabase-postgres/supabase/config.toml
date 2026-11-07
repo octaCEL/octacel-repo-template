@@ -1,0 +1,10 @@
+project_id = "octacel-example"
+
+[api]
+enabled = true
+
+[db]
+major_version = 15
+
+[db.migrations]
+enabled = true

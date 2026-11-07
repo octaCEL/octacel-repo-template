@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "name": "octacel-example-podman-service",
+  "description": "A small rootless Python HTTP service fixture for testing OCI build and publishing.",
+  "projectType": "podman-service",
+  "packageManager": null,
+  "nodeVersion": null,
+  "terraformVersion": null,
+  "terraformRoot": null,
+  "commands": {},
+  "database": null,
+  "container": {
+    "enabled": true,
+    "image": "git.octacel.com/octacel/ci-fixture-podman-service",
+    "containerfile": "Containerfile",
+    "architectures": ["amd64"]
+  },
+  "targets": ["contabo-vps41-development"],
+  "resources": {"memoryMiB": 256, "cpuCount": 1, "storageGiB": 1},
+  "secretReferences": []
+}

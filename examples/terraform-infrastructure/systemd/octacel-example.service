@@ -1,0 +1,9 @@
+[Unit]
+Description=CI fixture for systemd unit verification
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/true
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "name": "replace-with-project-slug",
+  "description": "",
+  "projectType": "select-a-supported-project-type",
+  "packageManager": null,
+  "nodeVersion": null,
+  "terraformVersion": null,
+  "terraformRoot": null,
+  "commands": {},
+  "database": null,
+  "container": {
+    "enabled": false,
+    "image": null,
+    "containerfile": null,
+    "architectures": ["amd64"]
+  },
+  "targets": [],
+  "resources": {"memoryMiB": null, "cpuCount": null, "storageGiB": null},
+  "secretReferences": []
+}
