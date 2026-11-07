@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "name": "octacel-example-terraform",
+  "description": "A small backend-free Terraform root for testing validation and IaC scans.",
+  "projectType": "terraform-infrastructure",
+  "packageManager": null,
+  "nodeVersion": null,
+  "terraformVersion": "1.16.6",
+  "terraformRoot": ".",
+  "commands": {
+    "terraformFormat": ["terraform", "fmt", "-check", "-recursive"],
+    "terraformValidate": ["terraform", "validate"]
+  },
+  "database": null,
+  "container": {"enabled": false, "image": null, "containerfile": null, "architectures": ["amd64"]},
+  "targets": ["contabo-vps41-development"],
+  "resources": {"memoryMiB": 512, "cpuCount": 1, "storageGiB": 2},
+  "secretReferences": []
+}

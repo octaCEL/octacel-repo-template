@@ -1,0 +1,8 @@
+{
+  "repository": "ahmed.al-zanam/octacel-ci",
+  "ref": "e6eec3714ddec1c34ffaec569bcb7aafae10f044",
+  "initScripts": {
+    "init_project.py": "8c8d6c23d0e22b12e962cd8bb8daf0e4b9912cdce5f8ecfd397a5beee5b616ca",
+    "validate_project_config.py": "94db717b85972e2edd067a408cd4a9b270653644d9dc2307b5a9e6b34db57a28"
+  }
+}

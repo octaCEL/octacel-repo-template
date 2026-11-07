@@ -1,0 +1,13 @@
+[Unit]
+Description=Local Quadlet definition for the example service
+
+[Container]
+Image=localhost/octacel-example-podman-service:dev
+ContainerName=octacel-example-podman-service
+PublishPort=8080:8080
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

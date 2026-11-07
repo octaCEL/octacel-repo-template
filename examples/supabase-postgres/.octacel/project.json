@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "name": "octacel-example-supabase-postgres",
+  "description": "A small tenant-scoped PostgreSQL application for exercising the shared octaCEL CI profile.",
+  "projectType": "supabase-postgres",
+  "packageManager": "npm",
+  "nodeVersion": "24.18.0",
+  "terraformVersion": null,
+  "terraformRoot": null,
+  "commands": {
+    "install": ["npm", "ci"],
+    "format": ["npm", "run", "format:check"],
+    "lint": ["npm", "run", "lint"],
+    "typecheck": ["npm", "run", "typecheck"],
+    "build": ["npm", "run", "build"],
+    "unit": ["npm", "run", "test:unit"],
+    "integration": ["npm", "run", "test:integration"],
+    "migrateTest": ["npm", "run", "db:migrate:test"],
+    "schemaCheck": ["npm", "run", "db:schema:check"],
+    "rlsTests": ["npm", "run", "test:rls"],
+    "tenantIsolation": ["npm", "run", "test:tenant-isolation"]
+  },
+  "database": {
+    "kind": "supabase-postgres",
+    "migrationsPath": "supabase/migrations",
+    "pgTapPath": "supabase/tests/database",
+    "rlsTestPath": "supabase/tests/rls",
+    "tenantIsolationTestPath": "supabase/tests/tenant-isolation"
+  },
+  "container": {"enabled": false, "image": null, "containerfile": null, "architectures": ["amd64"]},
+  "targets": ["contabo-vps41-development"],
+  "resources": {"memoryMiB": 1024, "cpuCount": 1, "storageGiB": 6},
+  "secretReferences": []
+}
