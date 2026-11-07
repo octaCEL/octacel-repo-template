@@ -12,7 +12,7 @@ After creating the project from this template:
 
 ## Shared workflow owner visibility
 
-Forgejo v15 requires the repository called by a cross-repository reusable workflow to be public. On the current instance, `octacel-ci` is public but the owning `octaCEL` organization is private; a live run failed to resolve that owner during workflow expansion. An administrator must make the owner publicly resolvable or relocate the public framework repository before CI can run. Making the organization public may expose membership metadata. No visibility change was made during this task.
+Forgejo v15 requires the repository called by a cross-repository reusable workflow to be public and its owner publicly resolvable. The shared framework is at `ahmed.al-zanam/octacel-ci`, owned by the public `ahmed.al-zanam` profile. The `octaCEL` organization remains private. Keep new workflows and the commit lock file pinned to this canonical Forgejo path.
 
 The final CI status context can vary with server version. Inspect the first completed workflow run and require the exact final summary check; do not guess its name.
 

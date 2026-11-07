@@ -1,6 +1,6 @@
 # octaCEL project template
 
-Use this repository to start a new octaCEL service, application, library, infrastructure project, or extension. It provides a small Forgejo workflow that calls the public, commit-pinned [`octacel-ci`](https://git.octacel.com/octaCEL/octacel-ci) framework. Each project selects its checks in `.octacel/project.json`; shared workflow implementations stay in the central CI repository.
+Use this repository to start a new octaCEL service, application, library, infrastructure project, or extension. It provides a small Forgejo workflow that calls the public, commit-pinned [`octacel-ci`](https://git.octacel.com/ahmed.al-zanam/octacel-ci) framework. Each project selects its checks in `.octacel/project.json`; shared workflow implementations stay in the central CI repository.
 
 ## Start a project
 
