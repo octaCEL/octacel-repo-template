@@ -37,92 +37,92 @@ jobs:
 
   project:
     if: github.repository != 'octaCEL/octacel-repo-template'
-    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/validate-project.yml@e6eec37
+    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/validate-project.yml@e6eec3714ddec1c34ffaec569bcb7aafae10f044
     with:
-      framework_ref: e6eec37
+      framework_ref: e6eec3714ddec1c34ffaec569bcb7aafae10f044
 
   node_quality:
     needs: project
     if: github.repository != 'octaCEL/octacel-repo-template' && (needs.project.outputs.project_type == 'nextjs' || needs.project.outputs.project_type == 'node-backend' || needs.project.outputs.project_type == 'typescript-library' || needs.project.outputs.project_type == 'browser-extension' || needs.project.outputs.project_type == 'containerized-backend' || needs.project.outputs.project_type == 'saas' || needs.project.outputs.project_type == 'supabase-postgres')
-    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/node-quality.yml@e6eec37
+    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/node-quality.yml@e6eec3714ddec1c34ffaec569bcb7aafae10f044
     with:
-      framework_ref: e6eec37
+      framework_ref: e6eec3714ddec1c34ffaec569bcb7aafae10f044
       node_version: ${{ needs.project.outputs.node_version }}
       integration_enabled: ${{ needs.project.outputs.integration_enabled }}
 
   postgres:
     needs: project
     if: github.repository != 'octaCEL/octacel-repo-template' && needs.project.outputs.project_type == 'supabase-postgres'
-    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/supabase-pgtap.yml@e6eec37
+    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/supabase-pgtap.yml@e6eec3714ddec1c34ffaec569bcb7aafae10f044
     with:
-      framework_ref: e6eec37
+      framework_ref: e6eec3714ddec1c34ffaec569bcb7aafae10f044
       node_version: ${{ needs.project.outputs.node_version }}
 
   terraform:
     needs: project
     if: github.repository != 'octaCEL/octacel-repo-template' && (needs.project.outputs.project_type == 'terraform-infrastructure' || needs.project.outputs.project_type == 'terraform-module')
-    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/terraform-validate.yml@e6eec37
+    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/terraform-validate.yml@e6eec3714ddec1c34ffaec569bcb7aafae10f044
     with:
-      framework_ref: e6eec37
+      framework_ref: e6eec3714ddec1c34ffaec569bcb7aafae10f044
       terraform_version: ${{ needs.project.outputs.terraform_version }}
       terraform_root: ${{ needs.project.outputs.terraform_root }}
 
   iac:
     needs: project
     if: github.repository != 'octaCEL/octacel-repo-template' && (needs.project.outputs.project_type == 'terraform-infrastructure' || needs.project.outputs.project_type == 'terraform-module')
-    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/iac-scan.yml@e6eec37
+    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/iac-scan.yml@e6eec3714ddec1c34ffaec569bcb7aafae10f044
     with:
-      framework_ref: e6eec37
+      framework_ref: e6eec3714ddec1c34ffaec569bcb7aafae10f044
       terraform_root: ${{ needs.project.outputs.terraform_root }}
 
   security:
     needs: project
     if: github.repository != 'octaCEL/octacel-repo-template'
-    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/security-scan.yml@e6eec37
+    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/security-scan.yml@e6eec3714ddec1c34ffaec569bcb7aafae10f044
     with:
-      framework_ref: e6eec37
+      framework_ref: e6eec3714ddec1c34ffaec569bcb7aafae10f044
 
   machine:
     needs: project
     if: github.repository != 'octaCEL/octacel-repo-template'
-    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/machine-compatibility.yml@e6eec37
+    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/machine-compatibility.yml@e6eec3714ddec1c34ffaec569bcb7aafae10f044
     with:
-      framework_ref: e6eec37
+      framework_ref: e6eec3714ddec1c34ffaec569bcb7aafae10f044
 
   release:
     needs: project
     if: github.repository != 'octaCEL/octacel-repo-template'
-    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/release-validation.yml@e6eec37
+    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/release-validation.yml@e6eec3714ddec1c34ffaec569bcb7aafae10f044
     with:
-      framework_ref: e6eec37
+      framework_ref: e6eec3714ddec1c34ffaec569bcb7aafae10f044
       project_type: ${{ needs.project.outputs.project_type }}
 
   container_build:
     needs: project
     if: github.repository != 'octaCEL/octacel-repo-template' && needs.project.outputs.container_enabled == 'true'
-    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/container-build.yml@e6eec37
+    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/container-build.yml@e6eec3714ddec1c34ffaec569bcb7aafae10f044
     with:
-      framework_ref: e6eec37
+      framework_ref: e6eec3714ddec1c34ffaec569bcb7aafae10f044
 
   systemd:
     needs: project
     if: github.repository != 'octaCEL/octacel-repo-template' && (needs.project.outputs.project_type == 'terraform-infrastructure' || needs.project.outputs.container_enabled == 'true')
-    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/systemd-validation.yml@e6eec37
+    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/systemd-validation.yml@e6eec3714ddec1c34ffaec569bcb7aafae10f044
     with:
-      framework_ref: e6eec37
+      framework_ref: e6eec3714ddec1c34ffaec569bcb7aafae10f044
 
   summary:
     needs: [project, node_quality, postgres, terraform, iac, security, machine, release, container_build, systemd]
     if: github.repository != 'octaCEL/octacel-repo-template' && always()
-    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/summary.yml@e6eec37
+    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/summary.yml@e6eec3714ddec1c34ffaec569bcb7aafae10f044
     with:
-      framework_ref: e6eec37
+      framework_ref: e6eec3714ddec1c34ffaec569bcb7aafae10f044
       expected_workflows_json: ${{ needs.project.outputs.expected_workflows_json }}
       needs_json: ${{ toJSON(needs) }}
 
   publish:
     needs: [project, container_build, summary]
     if: github.repository != 'octaCEL/octacel-repo-template' && always() && needs.summary.result == 'success' && needs.project.outputs.container_enabled == 'true' && needs.container_build.result == 'success' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
-    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/image-publish.yml@e6eec37
+    uses: ahmed.al-zanam/octacel-ci/.forgejo/workflows/image-publish.yml@e6eec3714ddec1c34ffaec569bcb7aafae10f044
     with:
-      framework_ref: e6eec37
+      framework_ref: e6eec3714ddec1c34ffaec569bcb7aafae10f044
